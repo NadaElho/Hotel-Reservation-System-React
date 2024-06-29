@@ -1,6 +1,6 @@
 import axios from "axios";
 const axiosInstance = axios.create({
-  baseURL: "http://localhost:3000/api/v1",
+  baseURL: "https://hotel-reservation-system-node-1.onrender.com/api/v1",
 });
 try {
   const data = await axios.get(
@@ -22,15 +22,15 @@ try {
     }
   );
 } catch (err) {
-  if (err.message === "Network Error") {
-    window.location.href = "/not-found";
-  } else if (err.response.data.message === "Unexpected token") {
-    localStorage.removeItem("token");
-    console.log("err", err.response.data.message);
-  } else {
-    console.log("An unexpected error occurred:", err);
-  }
-  
+  // if (err.message === "Network Error") {
+  //   window.location.href = "/not-found";
+  // } else if (err.response.data.message === "Unexpected token") {
+  //   localStorage.removeItem("token");
+  //   console.log("err", err.response.data.message);
+  // } else {
+  //   console.log("An unexpected error occurred:", err);
+  // }
+  console.log(err)
 }
 
 export default axiosInstance;
